@@ -5,23 +5,53 @@ header{
   padding: 10px;
   margin-bottom: 10px;
 }
-.content{
-    height: 250px;
+
+.tabs{
   float: left;
   margin-left: 10px;
   width: 75%;
 }
 .navBar{
   float:left;
+  min-width: 150px;
   width: 20%;
   height: 100%;
+}
+#suggestions{
+  display: inline-block;
+    position: relative;
+  }
+  #suggestions-list{
+    position: absolute;
+    display:none;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      top=0;
+        overflow: auto;
+        max-height: 200px;
+    }
+    /* #suggestions:hover #suggestions-list{
+  display: block;
+} */
+#itemName{
+  display: inline-block;
+  position: relative;
+
+}
+
+#Department{
+  display: none;
+}
+#AboutUs{
+  display: none;
+}
+#ContactUs{
+  display: none;
 }
 main{
   overflow: auto;
 }
-input {
-  margin: 10px;
-}
+
 footer{
   position: fixed;
   bottom: 0;
@@ -35,22 +65,38 @@ footer{
   width: 100%;
 
 }
-ul {
+.navBar ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
-li{
+.navBar ul li{
   background-color:darkgray;
   text-align:center;
   margin: 5px;
 }
-li:hover{
+.navBar ul li:hover{
   background-color:blue;
 }
-li a{
+.navBar ul li{
   display:block;
   color:white;
   padding:30px ;
   text-decoration: none;
+}
+
+#suggestions-list ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+#suggestions-list li{
+  padding:5px ;
+  width: 163px;
+  background-color:white;
+  color: black;
+  text-align:center;
+}
+#suggestions-list li:hover{
+  background-color:lightgray;
 }
