@@ -1,0 +1,56 @@
+header{
+  text-align: center;
+  background-color: #73AD21;
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.content{
+    height: 250px;
+  float: left;
+  margin-left: 10px;
+  width: 75%;
+}
+.navBar{
+  float:left;
+  width: 20%;
+  height: 100%;
+}
+main{
+  overflow: auto;
+}
+input {
+  margin: 10px;
+}
+footer{
+  position: fixed;
+  bottom: 0;
+  background-color: navy;
+  float:left;
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+li{
+  background-color:darkgray;
+  text-align:center;
+  margin: 5px;
+}
+li:hover{
+  background-color:blue;
+}
+li a{
+  display:block;
+  color:white;
+  padding:30px ;
+  text-decoration: none;
+}

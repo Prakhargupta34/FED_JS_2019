@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script type="text/javascript" src="js/script.js">
+    </script>
+    <meta charset="utf-8">
+    <title>Simple Website</title>
+  </head>
+  <body>
+    <header>
+      <h1>Simple Website</h1>
+    </header>
+<main>
+  <div class="navBar">
+    <ul>
+        <li><a href="#">Todo</a></li>
+        <li><a href="#">Department</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+    </ul>
+  </div>
+  <div class="content">
+    <form>
+    <input type="text" id="itemName" list="suggestions" required placeholder="Enter the item" ></input>
+    <button type="submit" id="addBtn" onclick = "show()">Add</button>
+    </form>
+    <datalist id="suggestions">
+    <option value="Box">
+    <option value="Pencil">
+    <option value="Pen">
+    <option value="Eraser">
+    <option value="Book">
+    </datalist>
+    <h3>Items List:</h3>
+    <p id="items"></p>
+  </div>
+</main>
+
+<footer>
+  <p>Copyright @MasterPrakhar</p>
+</footer>
+
+
+
+  </body>
+</html>
