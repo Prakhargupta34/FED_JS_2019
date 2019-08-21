@@ -47,7 +47,7 @@ function showSuggestions(element)
     {
       if(item)  //if umdefined
       {
-      if(item.toUpperCase().includes(txt))
+      if(item.toUpperCase().includes(txt.toUpperCase()))
       {
         var textNode = document.createTextNode(item);
         var ele = document.createElement("li");
@@ -75,9 +75,9 @@ function searchItems(ele) {
     {
       if(item)  //if umdefined
       {
-      if(item.toUpperCase().includes(txt))
+      if(item.toUpperCase().includes(itemName.toUpperCase()))
       {
-        document.getElementById('items').innerHTML += "<li id="+items.indexOf(item)+">"  + item + "<button class='editBtn'>Edit</button> <button onclick='deleteItem(this)' class='deleteBtn' name="+items.indexOf(item)+">Delete</button><hr></li>";
+        document.getElementById('items').innerHTML += "<li id="+items.indexOf(item)+">"  + item + "<button class='editBtn' onclick='editItem(this)' name='"+items.indexOf(item)+"'>Edit</button> <button onclick='deleteItem(this)' class='deleteBtn' name="+items.indexOf(item)+">Delete</button><hr></li>";
       }
     }
   }
