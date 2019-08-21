@@ -1,17 +1,31 @@
-counter = 0;
-    var items= ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua & Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia & Herzegovina","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India"];
 
-
+counter=0;
+var items = [];
 function addItems() {
   if (document.getElementById('itemName').value != "") {
+
     var itemName = document.getElementById('itemName').value;
-    counter += 1;
-    document.getElementById('items').innerHTML += "<br>" + counter + ". " + itemName;
-    document.getElementById('itemName').value = "";
     items.push(itemName);
+    document.getElementById('items').innerHTML += "<li id="+counter+">"  + itemName + "<button class='editBtn' onclick='editItem(this)' name="+counter+" >Edit</button> <button onclick='deleteItem(this)' class='deleteBtn' name="+counter+">Delete</button><hr></li>";
+    document.getElementById('itemName').value = "";
+    counter++;
   }
 }
-
+function deleteItem(ele) {
+  delete items[ele.name];
+  var element = document.getElementById(ele.name);
+  element.parentNode.removeChild(element);
+}
+function editItem(ele) {
+  itemName=prompt("Enter new item name : ");
+  id=ele.name;
+  if(itemName != "")
+  {
+    document.getElementById(id).innerHTML="";
+    document.getElementById(id).innerHTML+=itemName + "<button class='editBtn' onclick='editItem(this)' name="+id+" >Edit</button> <button onclick='deleteItem(this)' class='deleteBtn' name="+id+">Delete</button><hr></li>";
+    items[id]=itemName;
+  }
+}
 function showTab(ele) {
   var elements = document.getElementsByClassName('tab');
   for (var i = 0; i < elements.length; i++)
@@ -28,12 +42,14 @@ function showSuggestions(element)
 {
   document.getElementById('suggestions-list').style.display = "none";
     document.getElementById('list').innerHTML="";
-    txt = element.value;
-    for(var i=0;i<items.length;i++)
+    txt = element.value.toUpperCase();
+    for(item of items)
     {
-      if(items[i].startsWith(txt))
+      if(item)  //if umdefined
       {
-        var textNode = document.createTextNode(items[i]);
+      if(item.toUpperCase().includes(txt))
+      {
+        var textNode = document.createTextNode(item);
         var ele = document.createElement("li");
         ele.append(textNode);
         ele.onmouseover=function() {
@@ -42,10 +58,31 @@ function showSuggestions(element)
         ele.onclick=function() {
           setItem(this,true);
         };
-        //ele.addEventListener("click",function() {setItem(items[i])})
         document.getElementById("list").append(ele);
     }
     }
+  }
     document.getElementById('suggestions-list').style.display = "block";
 
+
+}
+function searchItems(ele) {
+
+    var itemName = document.getElementById('itemName').value;
+    document.getElementById('items').innerHTML = "";
+
+    for(item of items)
+    {
+      if(item)  //if umdefined
+      {
+      if(item.toUpperCase().includes(txt))
+      {
+        document.getElementById('items').innerHTML += "<li id="+items.indexOf(item)+">"  + item + "<button class='editBtn'>Edit</button> <button onclick='deleteItem(this)' class='deleteBtn' name="+items.indexOf(item)+">Delete</button><hr></li>";
+      }
+    }
+  }
+    document.getElementById('itemName').value = "";
+  }
+function hideSuggestions() {
+  document.getElementById('suggestions-list').style.display = "none";
 }

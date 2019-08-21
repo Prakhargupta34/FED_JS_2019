@@ -27,20 +27,18 @@
     <div class="tabs">
       <div class="tab" id="Todo">
           <div id="suggestions">
-              <input type="text" id="itemName" onkeyup="showSuggestions(this) " onkeypress="showSuggestions(this)" required placeholder="Enter the item"></input>
+              <input type="text" id="itemName" onkeyup="showSuggestions(this) " onkeypress="showSuggestions(this)" onblur="hideSuggestions(this)" onfocus="showSuggestions(this) " required placeholder="Enter the item"></input>
               <div id="suggestions-list">
                 <ul id="list">
-                  <!-- <li onclick="setItem(this)" onmouseover="setItem(this)">Home</li>
-                  <li onclick="setItem(this) " onmouseover="setItem(this)">About</li>
-                  <li onclick="setItem(this)" onmouseover="setItem(this)">Contact Us</li> -->
                 </ul>
               </div>
           </div>
-          <button type="submit" id="addBtn" onclick="addItems()">Add</button>
+          <button id="addBtn" onclick="addItems()">Add</button>
+          <button id="searchBtn" onclick="searchItems()">Search</button>
         <h3>Items List:</h3>
-        <p id="items"></p>
-      </div>
+        <ol id="items"></ol>
 
+      </div>
       <div class="tab" id="Department">
         <h1>Department</h1>
       </div>
