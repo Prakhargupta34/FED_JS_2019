@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <script type="text/javascript" src="js/script.js">
+  </script>
+  <meta charset="utf-8">
+  <title>Simple Website</title>
+</head>
+
+<body>
+  <header>
+    <h1>Simple Website</h1>
+  </header>
+
+  <main>
+    <div class="navBar">
+      <ul>
+        <li><a onclick="showTab(this)" name="Todo">Todo</a></li>
+        <li><a onclick="showTab(this)" name="Department">Department</a></li>
+        <li><a onclick="showTab(this)" name="AboutUs">About Us</a></li>
+        <li><a onclick="showTab(this)" name="ContactUs">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="tabs">
+      <div class="tab" id="Todo">
+          <div id="suggestions">
+              <input type="text" id="itemName" onkeyup="showSuggestions(this) " onkeypress="showSuggestions(this)" onblur="hideSuggestions(this)" onfocus="showSuggestions(this) " required placeholder="Enter the item"></input>
+              <div id="suggestions-list">
+                <ul id="list">
+                </ul>
+              </div>
+          </div>
+          <button id="addBtn" onclick="addItems()">Add</button>
+          <button id="searchBtn" onclick="searchItems()">Search</button>
+        <h3>Items List:</h3>
+        <ol id="items"></ol>
+
+      </div>
+      <div class="tab" id="Department">
+        <h1>Department</h1>
+      </div>
+      <div class="tab" id="AboutUs">
+        <h1>About Us</h1>
+      </div>
+      <div class="tab" id="ContactUs">
+        <h1>Contact Us</h1>
+      </div>
+    </div>
+
+
+  </main>
+
+  <footer>
+    <p>Copyright @MasterPrakhar</p>
+  </footer>
+</body>
+
+</html>
