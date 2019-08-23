@@ -38,7 +38,6 @@ header{
   position: relative;
   margin-top: 10px;
   padding: 10px;
-
 }
 
 #Department{
@@ -127,4 +126,10 @@ margin-left: 80px
 }
 .deleteBtn{
   margin-left: 20px;
+}
+.updateBtn{
+  margin-left: 50px;
+}
+#updateInput{
+  padding:10px;
 }

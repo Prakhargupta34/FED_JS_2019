@@ -17,12 +17,17 @@ function deleteItem(ele) {
   element.parentNode.removeChild(element);
 }
 function editItem(ele) {
-  itemName=prompt("Enter new item name : ");
   id=ele.name;
+  document.getElementById(id).innerHTML = "<input type='text' id=updateInput name="+id+" value='"+items[id]+"'><button class='updateBtn' onclick='updateItem(this)' name="+id+" >Update</button><hr>";
+}
+function updateItem(ele) {
+  id=ele.name;
+  itemName=ele.previousSibling.value;
   if(itemName != "")
   {
-    document.getElementById(id).innerHTML="";
-    document.getElementById(id).innerHTML+=itemName + "<button class='editBtn' onclick='editItem(this)' name="+id+" >Edit</button> <button onclick='deleteItem(this)' class='deleteBtn' name="+id+">Delete</button><hr></li>";
+    items[id]=itemName;
+    //document.getElementById(id).innerHTML="";
+    document.getElementById(id).innerHTML=itemName + "<button class='editBtn' onclick='editItem(this)' name="+id+" >Edit</button> <button onclick='deleteItem(this)' class='deleteBtn' name="+id+">Delete</button><hr>";
     items[id]=itemName;
   }
 }
